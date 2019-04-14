@@ -120,9 +120,15 @@ function* getFibonacciSequence() {
  *           8
  *
  */
-function* breadthTraversalTree(root) {
-    throw new Error('Not implemented');
-}
+ function* breadthTraversalTree(root) {
+     let el = [root];
+     for (let node of el) {
+         yield node;
+         if (node.children) {
+             el.push(...node.children);
+         }
+     }
+ }
 
 
 /**
