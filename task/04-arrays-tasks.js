@@ -603,17 +603,9 @@ function distinct(arr) {
  *   }
  */
 function group(array, keySelector, valueSelector) {
-    // let map = new Map();
-//     let arr = [];
-//     let count = 0;
-//     function deleter() {
-//         arr.push([]);
-//         arr[count].push(array[count].keySelector)
-//         array.map(function (i){return i=new Array(n).fill(0)})
-//     }
-//     map.set()
-
-  throw new Error('Not implemented');
+  return new Map(array.map(function(item,index,arr) {
+        return new Array(keySelector(item), arr.filter(x => keySelector(x) === keySelector(item)).map(x => valueSelector(x)));
+    }));
 }
 
 
@@ -629,7 +621,7 @@ function group(array, keySelector, valueSelector) {
  *   ['one','two','three'], x=>x.split('')  =>   ['o','n','e','t','w','o','t','h','r','e','e']
  */
 function selectMany(arr, childrenSelector) {
-    throw new Error('Not implemented');
+    return arr.map(childrenSelector).reduce((accumulator, value) => accumulator.concat(value));
 }
 
 
