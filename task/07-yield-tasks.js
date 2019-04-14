@@ -87,9 +87,16 @@ function* getFibonacciSequence() {
  *  depthTraversalTree(node1) => node1, node2, node3, node4, node5, node6, node7, node8
  *
  */
-function* depthTraversalTree(root) {
-    throw new Error('Not implemented');
-}
+ function* depthTraversalTree(root) {
+     let el = [root];
+     while (el.length>0) {
+         let node = el.pop();
+         yield node;
+         if (node.children) {
+             el.push(...node.children.reverse());
+         }
+     }
+ }
 
 
 /**
