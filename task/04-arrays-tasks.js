@@ -254,7 +254,8 @@ function toArrayOfSquares(arr) {
  *   [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ] => [ 1, 3, 6, 10, 15, 21, 28, 36, 45, 55 ]
  */
 function getMovingSum(arr) {
-   throw new Error('Not implemented');
+  let cur_n = 0;
+  return arr.map(function (i){cur_n += i; return cur_n})
 }
 
 /**
@@ -269,7 +270,11 @@ function getMovingSum(arr) {
  * [ "a" ] => []
  */
 function getSecondItems(arr) {
-   throw new Error('Not implemented');
+   let arr_1 = [];
+   let cur_n = -1;
+   arr.map(function (i){cur_n+= 2; if(arr[cur_n]!==undefined) {arr_1.push(arr[cur_n])}; return })
+
+   return arr_1
 }
 
 
