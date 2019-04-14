@@ -293,7 +293,19 @@ function getSecondItems(arr) {
  *  [ 1,2,3,4,5 ] => [ 1, 2,2, 3,3,3, 4,4,4,4, 5,5,5,5,5 ]
  */
 function propagateItemsByPositionIndex(arr) {
-   throw new Error('Not implemented');
+  let arr_1 = [];
+  let arr_l = arr.length;
+  let cur_n = 0;
+  arr.map(function(i){
+      function m (){
+        if(cur_n<=arr.indexOf(i)&&arr.length!==0){
+        arr_1.push(i);
+        cur_n++; return m()
+        }
+      } m() ;
+      return cur_n = 0;
+    })
+  return arr_1;
 }
 
 
@@ -311,7 +323,13 @@ function propagateItemsByPositionIndex(arr) {
  *   [ 10, 10, 10, 10 ] => [ 10, 10, 10 ]
  */
 function get3TopItems(arr) {
-   throw new Error('Not implemented');
+   const arr_max_3 = [];
+   arr.map(function (i){
+     if(arr_max_3.length<3){arr_max_3.unshift(i)}
+     else{
+       if (i > arr_max_3[0]){arr_max_3.pop(); arr_max_3.unshift(i); return}
+     }; return })
+   return arr_max_3
 }
 
 
@@ -329,7 +347,7 @@ function get3TopItems(arr) {
  *   [ 1, '2' ] => 1
  */
 function getPositivesCount(arr) {
-   throw new Error('Not implemented');
+   return arr.filter(i => i > 0 && typeof i === 'number').length 
 }
 
 /**
